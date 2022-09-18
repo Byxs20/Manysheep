@@ -75,7 +75,7 @@ class WorkThread(QtCore.QThread):
     def run(self):
         t0 = time.time()
         ret = asyncio.run(main(self.number))
-        timed = round(time.time() - t0)
+        timed = round(time.time() - t0, 4)
         self.end.emit(self.number, ret, timed)
 
 async def get(url):
