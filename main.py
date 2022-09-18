@@ -8,6 +8,9 @@ from src import GUI
 from PyQt5 import QtGui, QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 
+# PyInstaller 项目的 Issue #1113 有讨论到两种方法来避免出现 LookupError: unknown encoding: idna
+import encodings.idna
+u''.encode('idna')
 
 class Main(QMainWindow, GUI.Ui_MainWindow):
     str_pattern = re.compile("^[0-9]*$")
