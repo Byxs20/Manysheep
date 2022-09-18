@@ -66,7 +66,7 @@ class Main(QMainWindow, GUI.Ui_MainWindow):
             self.workThread.start()
 
 class WorkThread(QtCore.QThread):
-    end = QtCore.pyqtSignal(int, list, float) # 计数完成后发送一个信号
+    end = QtCore.pyqtSignal(int, list, float)
 
     def __init__(self, number) -> None:
         super().__init__()
