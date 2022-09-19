@@ -42,7 +42,11 @@ class Main(QMainWindow, GUI.Ui_MainWindow):
         if (text := self.plainTextEdit.toPlainText()) != "":
             return text
         elif (id := self.get_id()) is not None:
-            token = Sheep.get_token(id)
+            try:
+                token = Sheep.get_token(id)
+            except Exception as e:
+                QMessageBox.critical(self, "错误提示", f"{e}", QMessageBox.Yes)
+                return None
             self.plainTextEdit.setPlainText(token)
             return token
 
