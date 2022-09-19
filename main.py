@@ -67,7 +67,7 @@ class Main(QMainWindow, GUI.Ui_MainWindow):
             QMessageBox.information(self, "温馨提示", "您输入的通关时间内容不规范!", QMessageBox.Yes)
 
     def show_info(self, number, ret, timed):
-        self.plainTextEdit_2.insertPlainText(f"[{time.strftime('%X', time.localtime())}] 发送 {number} 次, 成功 {sum(1 for i in ret if i)} 次, 花费时间：{timed}\r\n")
+        self.plainTextEdit_2.appendPlainText(f"[{time.strftime('%X', time.localtime())}] 发送 {number} 次, 成功 {sum(1 for i in ret if i)} 次, 花费时间：{timed}")
         self.pushButton.setEnabled(True)
 
     def start(self):
